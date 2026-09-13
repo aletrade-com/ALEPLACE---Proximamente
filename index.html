@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ALEPLACE | Próximamente</title>
+  <meta name="description" content="ALEPLACE - Coleccionables y regalos. Próximamente.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #172033;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255, 119, 0, 0.10), transparent 28%),
+        radial-gradient(circle at 85% 80%, rgba(24, 142, 204, 0.10), transparent 30%),
+        linear-gradient(135deg, #ffffff 0%, #f5f8fb 100%);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      width: 100%;
+      padding: 28px 6%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #17314d;
+    }
+
+    .logo-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #ff6a00, #ff8a00);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(255, 106, 0, 0.22);
+      transform: rotate(-3deg);
+    }
+
+    .logo-icon svg {
+      width: 34px;
+      height: 34px;
+      fill: white;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .logo-name {
+      font-size: 31px;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+    }
+
+    .logo-name span {
+      color: #ff6a00;
+    }
+
+    .logo-tagline {
+      margin-top: 7px;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #718096;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px 70px;
+    }
+
+    .content {
+      width: min(850px, 100%);
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 17px;
+      border-radius: 999px;
+      background: rgba(255, 106, 0, 0.09);
+      color: #e85d00;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      margin-bottom: 28px;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ff6a00;
+      box-shadow: 0 0 0 5px rgba(255, 106, 0, 0.12);
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.02;
+      letter-spacing: -3px;
+      font-weight: 800;
+      color: #172033;
+      margin-bottom: 24px;
+    }
+
+    h1 span {
+      color: #ff6a00;
+    }
+
+    .intro {
+      max-width: 650px;
+      margin: 0 auto;
+      font-size: clamp(17px, 2vw, 20px);
+      line-height: 1.7;
+      color: #5f6b7a;
+    }
+
+    .visual {
+      margin: 48px auto 42px;
+      width: min(620px, 100%);
+      min-height: 170px;
+      padding: 30px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(23, 32, 51, 0.07);
+      box-shadow: 0 25px 70px rgba(23, 32, 51, 0.08);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      overflow: hidden;
+    }
+
+    .item {
+      width: 82px;
+      height: 82px;
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
+      background: #f5f7fa;
+      border: 1px solid #e7ebf0;
+      box-shadow: 0 12px 25px rgba(23, 32, 51, 0.06);
+    }
+
+    .item:nth-child(1) {
+      transform: rotate(-8deg) translateY(8px);
+    }
+
+    .item:nth-child(2) {
+      transform: translateY(-8px);
+      background: #fff5ed;
+      border-color: #ffe1cd;
+    }
+
+    .item:nth-child(3) {
+      transform: rotate(8deg) translateY(8px);
+    }
+
+    .item:nth-child(4) {
+      transform: rotate(-5deg) translateY(-3px);
+      background: #eef8fc;
+      border-color: #d8edf5;
+    }
+
+    .message {
+      font-size: 15px;
+      color: #718096;
+      line-height: 1.6;
+    }
+
+    footer {
+      padding: 25px 20px 30px;
+      text-align: center;
+      color: #8a94a3;
+      font-size: 13px;
+    }
+
+    .footer-brand {
+      color: #27364a;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding-top: 22px;
+      }
+
+      .logo-icon {
+        width: 46px;
+        height: 46px;
+      }
+
+      .logo-name {
+        font-size: 26px;
+      }
+
+      .logo-tagline {
+        font-size: 7px;
+        letter-spacing: 1.5px;
+      }
+
+      main {
+        padding-top: 20px;
+      }
+
+      h1 {
+        letter-spacing: -1.8px;
+      }
+
+      .visual {
+        gap: 9px;
+        padding: 22px 12px;
+      }
+
+      .item {
+        width: 65px;
+        height: 65px;
+        border-radius: 18px;
+        font-size: 27px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <header>
+      <div class="logo">
+        <div class="logo-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M3 4h2l2.1 10.1a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 1.9-1.4L20 8H7"/>
+            <circle cx="10" cy="19" r="1.5"/>
+            <circle cx="18" cy="19" r="1.5"/>
+          </svg>
+        </div>
+
+        <div class="logo-text">
+          <div class="logo-name">ALE<span>PLACE</span></div>
+          <div class="logo-tagline">COLECCIONABLES &amp; GIFTS</div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="content">
+
+        <div class="badge">
+          <span class="badge-dot"></span>
+          PRÓXIMAMENTE
+        </div>
+
+        <h1>
+          Estamos preparando<br>
+          <span>algo especial</span> para ti
+        </h1>
+
+        <p class="intro">
+          ALEPLACE está preparando su nueva tienda online de
+          coleccionables y regalos. Muy pronto podrás descubrir
+          nuestra selección y encontrar ese artículo especial que estabas buscando.
+        </p>
+
+        <div class="visual" aria-hidden="true">
+          <div class="item">🚗</div>
+          <div class="item">🎁</div>
+          <div class="item">⭐</div>
+          <div class="item">🎨</div>
+        </div>
+
+        <p class="message">
+          Estamos trabajando para ofrecerte una experiencia de compra
+          cómoda, segura y cuidada hasta el último detalle.
+        </p>
+
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-brand">ALEPLACE</div>
+      <div>Tu pasión, en un solo lugar.</div>
+    </footer>
+
+  </div>
+</body>
+</html>
